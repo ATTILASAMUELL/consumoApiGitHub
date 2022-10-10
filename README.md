@@ -31,11 +31,7 @@ Desenvolvimento de um consumo API GIT HUB -
 
 
 **Git instalado (Opcional), pode baixar o zip do projeto**
-## 📚 Acesso ao Sistema
-**Usuário: testandodesafio@gmail.com**
 
-
-**Senha: 12345**
 
 ---
 ##  Clone do projeto 
