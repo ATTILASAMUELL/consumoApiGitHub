@@ -2,7 +2,7 @@
     <div class="search-box">
         <input class="search-txt" type="text" name="" wire:model="searchGit"
             onfocus="this.selectionStart = this.selectionEnd = this.value.length;" autofocus="true"
-            placeholder="Qual o usuário no GitHub?">
+            placeholder="{{$placeholder}}">
         <a class="search-btn" wire:click="searchGitAction"> <i class="fa fa-search" aria-hidden="true"></i>
         </a>
 

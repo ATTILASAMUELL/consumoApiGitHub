@@ -20,6 +20,8 @@ class UserGit extends Component
     public $searchProject;
     public $userLogin;
 
+    public $placeholder = "Qual o usuário no GitHub?";
+
     
 
     public function render()
@@ -72,36 +74,50 @@ class UserGit extends Component
     public function searchGitAction()
     {
         $searchGitSemEspaco = str_replace(' ', '', $this->searchGit);
+       
+        if((isset($searchGitSemEspaco)) and (!empty($searchGitSemEspaco)) and ($searchGitSemEspaco !=''))
+        {
+            $url = 'https://api.github.com/users/' . $searchGitSemEspaco . '/repos';
+            $response = Http::withOptions(["verify" => false])->get($url);
+            $response = $response->json();
+            
+            if (isset($response)) {
 
-
-        $url = 'https://api.github.com/users/' . $searchGitSemEspaco . '/repos';
-        $response = Http::withOptions(["verify" => false])->get($url);
-        $response = $response->json();
-        if (count($response)) {
-
-            foreach ($response as $val) {
-
-                if (isset($val['language'])) {
-                    $this->userGit['language'] = $val['language'];
-                }
-
-                if (isset($val['description'])) {
-                    $this->userGit['description'] = $val['description'];
-                }
-                if (isset($val['html_url'])) {
-                    $this->userGit['html_url1'] = $val['html_url'];
-                }
-
-                if (isset($val['owner'])) {
-                    foreach ($val['owner'] as $key => $value) {
-                        $this->userGit[$key] = $value;
+                foreach ($response as $val) {
+    
+                    if (isset($val['language'])) {
+                        $this->userGit['language'] = $val['language'];
+                    }
+    
+                    if (isset($val['description'])) {
+                        $this->userGit['description'] = $val['description'];
+                    }
+                    if (isset($val['html_url'])) {
+                        $this->userGit['html_url1'] = $val['html_url'];
+                    }
+    
+                    if (isset($val['owner'])) {
+                        foreach ($val['owner'] as $key => $value) {
+                            $this->userGit[$key] = $value;
+                        }
                     }
                 }
+    
+                $this->userGit['total'] = count($response);
+                $this->userLogin = $this->userGit['login'];
+                $this->userGit['login'] = $this->searchGit;
             }
-
-            $this->userGit['total'] = count($response);
-            $this->userLogin = $this->userGit['login'];
-            $this->userGit['login'] = $this->searchGit;
+            
         }
+        if(empty($searchGitSemEspaco))
+        {
+            $this->placeholder = "Por favor digite um nome!!! ";
+            $this->userProjectGit['total'] = [];
+            $this->userProjectGit['items'] = [];
+            $this->userGit = [];
+
+        }
+        
+       
     }
 }
