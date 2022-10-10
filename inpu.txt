@@ -1,0 +1,32 @@
+<div>
+    <form>
+        <input class="form-control" wire:model="searchGit" type="text" placeholder="What are you searching for...">
+    </form><br>
+
+    <div class="profile-box">
+        <img src="https://avatars.githubusercontent.com/u/76443540?v=4" alt="">
+        <h3>Nome</h3>
+
+    </div>
+
+    <p class="text-info">No users found using your search query</p>
+    <h1>{{ $searchGit }}</h1>
+    @if (count($userGit) > 0)
+
+        @foreach ($userGit as $key => $value)
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ $key == 'avatar_url' ? $value : '' }}" width="100px" height="200px"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the
+                        card's content.</p>
+                </div>
+            </div>
+        @endforeach
+    @endif
+
+
+
+
+</div>

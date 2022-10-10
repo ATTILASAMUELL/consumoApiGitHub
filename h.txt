@@ -1,0 +1,24 @@
+composer create-project laravel/laravel consumo-api-git
+
+api.github.com/users/ATTILASAMUELL/repos
+
+  "owner" => array:18 [▼
+    "login" => "ATTILASAMUELL"
+    "id" => 76443540
+    "node_id" => "MDQ6VXNlcjc2NDQzNTQw"
+    "avatar_url" => "https://avatars.githubusercontent.com/u/76443540?v=4"
+    "gravatar_id" => ""
+    "url" => "https://api.github.com/users/ATTILASAMUELL"
+    "html_url" => "https://github.com/ATTILASAMUELL"
+    "followers_url" => "https://api.github.com/users/ATTILASAMUELL/followers"
+    "following_url" => "https://api.github.com/users/ATTILASAMUELL/following{/other_user}"
+    "gists_url" => "https://api.github.com/users/ATTILASAMUELL/gists{/gist_id}"
+    "starred_url" => "https://api.github.com/users/ATTILASAMUELL/starred{/owner}{/repo}"
+    "subscriptions_url" => "https://api.github.com/users/ATTILASAMUELL/subscriptions"
+    "organizations_url" => "https://api.github.com/users/ATTILASAMUELL/orgs"
+    "repos_url" => "https://api.github.com/users/ATTILASAMUELL/repos"
+    "events_url" => "https://api.github.com/users/ATTILASAMUELL/events{/privacy}"
+    "received_events_url" => "https://api.github.com/users/ATTILASAMUELL/received_events"
+    "type" => "User"
+    "site_admin" => false
+  ]
